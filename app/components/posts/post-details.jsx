@@ -1,6 +1,7 @@
 import { getFormattedDate } from "@/utils";
 import Image from "next/image";
 import React from "react";
+import Tag from "../tags/tag";
 
 const PostDetailsPage = ({ post }) => {
   return (
@@ -14,6 +15,11 @@ const PostDetailsPage = ({ post }) => {
       />
       <h1 className="text-4xl font-bold pt-5">{post?.title}</h1>
       <h2 className="text-xl  pt-3 pb-3">{post?.subtitle}</h2>
+      <div className="flex mb-4 ">
+        {post?.tags.map((tag) => (
+          <Tag tag={tag} key={tag.id} />
+        ))}
+      </div>
 
       <div
         className="post-details"

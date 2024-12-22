@@ -1,13 +1,11 @@
-import { getAllPosts } from "@/queries/blog-data";
-import React from "react";
 import LatestPost from "./latest-post";
 import PostCard from "./post-Card";
 
-const PostList = async () => {
-  const posts = await getAllPosts();
-  console.log(posts);
+const PostList = ({ posts }) => {
+  // const posts = await getAllPosts();
+  // console.log(posts);
 
-  const latestPost = posts[0].node;
+  const latestPost = posts[0]?.node;
 
   const restPosts = posts.slice(1);
   return (
