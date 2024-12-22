@@ -1,6 +1,7 @@
 import { getAllPosts } from "@/queries/blog-data";
 import React from "react";
 import LatestPost from "./latest-post";
+import PostCard from "./post-Card";
 
 const PostList = async () => {
   const posts = await getAllPosts();
@@ -17,12 +18,11 @@ const PostList = async () => {
 
       {restPosts.length > 0 && (
         <div className="px-8 py-16">
-          {/* <div className="grid gap-4 mt-4  grid-cols-1 md:grid-cols-2 lg:grid-cols-2">{restPosts.map((post)=>(
-          
-       ))}
-       
-       
-       </div> */}
+          <div className="grid gap-4 mt-4  grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            {restPosts.map((post) => (
+              <PostCard key={post?.node?.slug} post={post?.node} />
+            ))}
+          </div>
 
           <button
             className="inline-flex items-center justify-center
